@@ -35,13 +35,11 @@ function getEnv(varName: string): string {
 }
 
 async function getOnline(fails = 0): Promise<boolean> {
-    console.log(fails);
     try {
         const res = await fetch(`${getEnv("MULTIPLEX_ENDPOINT")}/health`);
 
         return res.status == 200;
     } catch {
-        console.log("retrying")
         if (fails < 2) {
             await sleep(200);
 
