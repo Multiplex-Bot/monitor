@@ -18,24 +18,30 @@ export default class Embed {
     url: string | undefined;
     timestamp: number | undefined;
     color: number | undefined;
-    footer: {
-        text: string;
-        icon_url: string | undefined;
-        proxy_icon_url: string | undefined;
-    } | undefined;
+    footer:
+        | {
+              text: string;
+              icon_url: string | undefined;
+              proxy_icon_url: string | undefined;
+          }
+        | undefined;
     image: Media | undefined;
     thumbnail: Media | undefined;
     video: Media | undefined;
-    provider: {
-        name: string | undefined;
-        url: string | undefined;
-    } | undefined;
-    author: {
-        name: string;
-        url: string | undefined;
-        icon_url: string | undefined;
-        proxy_icon_url: string | undefined;
-    } | undefined;
+    provider:
+        | {
+              name: string | undefined;
+              url: string | undefined;
+          }
+        | undefined;
+    author:
+        | {
+              name: string;
+              url: string | undefined;
+              icon_url: string | undefined;
+              proxy_icon_url: string | undefined;
+          }
+        | undefined;
     fields: Field[] | undefined;
 
     setTitle(title: string): Embed {
@@ -77,7 +83,7 @@ export default class Embed {
         url: string,
         proxyUrl?: string,
         height?: number,
-        width?: number,
+        width?: number
     ): Embed {
         this.image = { url, proxy_url: proxyUrl, height, width };
         return this;
@@ -87,7 +93,7 @@ export default class Embed {
         url: string,
         proxyUrl?: string,
         height?: number,
-        width?: number,
+        width?: number
     ): Embed {
         this.thumbnail = { url, proxy_url: proxyUrl, height, width };
         return this;
@@ -97,7 +103,7 @@ export default class Embed {
         url: string,
         proxyUrl?: string,
         height?: number,
-        width?: number,
+        width?: number
     ): Embed {
         this.video = { url, proxy_url: proxyUrl, height, width };
         return this;
@@ -112,7 +118,7 @@ export default class Embed {
         name: string,
         url?: string,
         iconUrl?: string,
-        proxyIconUrl?: string,
+        proxyIconUrl?: string
     ): Embed {
         this.author = {
             name,
